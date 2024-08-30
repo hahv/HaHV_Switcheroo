@@ -712,7 +712,7 @@ namespace Switcheroo
         private void ShowHelpTextBlock_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             var duration = new Duration(TimeSpan.FromSeconds(0.150));
-            var newHeight = HelpPanel.Height > 0 ? 0 : +17;
+            var newHeight = HelpPanel.Height > 0 ? 0 : + 25;
             HelpPanel.BeginAnimation(HeightProperty, new DoubleAnimation(HelpPanel.Height, newHeight, duration));
         }
 

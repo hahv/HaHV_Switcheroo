@@ -5,7 +5,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         Closing="OnClose" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True"
         SizeToContent="WidthAndHeight"
-        Title="" MinWidth="542" Deactivated="MainWindow_OnLostFocus" Loaded="MainWindow_OnLoaded"
+        Title="" MinWidth="700" Deactivated="MainWindow_OnLostFocus" Loaded="MainWindow_OnLoaded"
         BorderBrush="Transparent" BorderThickness="1"
         Background="Transparent">
 
@@ -34,32 +34,32 @@
         <local:WindowHandleToCachedIconConverter x:Key="WindowHandleToCachedIconConverter" />
     </Window.Resources>
 
-    <Border Padding="3" Background="White" BorderBrush="DarkGray" BorderThickness="1" Name="Border">
+    <Border Padding="5" Background="White" BorderBrush="DarkGray" BorderThickness="1" Name="Border">
         <DockPanel LastChildFill="True">
             <DockPanel Margin="4,0,4,0" Name="HelpPanel" Background="Transparent" Height="0" DockPanel.Dock="Top">
-                <TextBlock FontSize="10" DockPanel.Dock="Left">
-                    type to search
+                <TextBlock FontSize="14" Foreground="Red" DockPanel.Dock="Left">
+                    <Bold>Type to search</Bold>
                 </TextBlock>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
-                    <TextBlock FontSize="10" Margin="0,0,8,0">
+                    <TextBlock FontSize="13" Margin="0,0,8,0">
                         <TextBlock.ToolTip>
                             <TextBlock>Press <Bold>tab</Bold> or <Bold>↑↓</Bold> to navigate in the list</TextBlock>
                         </TextBlock.ToolTip>
-                        <Bold>tab</Bold> or <Bold>↑↓</Bold> to navigate
+                        <Bold>tab</Bold> or <Bold>↑↓</Bold> to navigate |
                     </TextBlock>
-                    <TextBlock FontSize="10" Margin="0,0,8,0">
+                    <TextBlock FontSize="13" Margin="0,0,8,0">
                         <TextBlock.ToolTip>
                             <TextBlock>Press <Bold>enter</Bold> to open the highlighted window</TextBlock>
                         </TextBlock.ToolTip>
-                        <Bold>enter</Bold> to open a window
+                        <Bold>enter</Bold> to open a window |
                     </TextBlock>
-                    <TextBlock FontSize="10" Margin="0,0,8,0">
+                    <TextBlock FontSize="13" Margin="0,0,8,0">
                         <TextBlock.ToolTip>
                             <TextBlock>Press <Bold>ctrl+w</Bold> to close the highlighted window</TextBlock>
                         </TextBlock.ToolTip>
-                        <Bold>ctrl+w</Bold> to close a window
+                        <Bold>ctrl+w</Bold> to close a window |
                     </TextBlock>
-                    <TextBlock FontSize="10">
+                    <TextBlock FontSize="13">
                         <TextBlock.ToolTip>
                             <TextBlock>Press <Bold>esc</Bold> to dismiss the Switcheroo overlay</TextBlock>
                         </TextBlock.ToolTip>
@@ -68,7 +68,7 @@
                 </StackPanel>
             </DockPanel>
             <Grid DockPanel.Dock="Top">
-                <TextBox Name="tb" Padding="5" VerticalAlignment="Top" TextChanged="TextChanged" FontSize="15"
+                <TextBox Name="tb" Padding="10" VerticalAlignment="Top" TextChanged="TextChanged" FontSize="18"
                          VerticalContentAlignment="Center">
                     <TextBox.InputBindings>
                         <!-- For now, leave these here.  Would it be better to route them upward? -->
@@ -163,8 +163,8 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="22" />
-                                    <ColumnDefinition Width="400" />
-                                    <ColumnDefinition Width="106" />
+                                    <ColumnDefinition Width="580" />
+                                    <ColumnDefinition Width="120" />
                                 </Grid.ColumnDefinitions>
                                 <Image Height="19" Grid.Row="0" Grid.Column="0" Margin="3,0"
                                        Opacity="{Binding IsBeingClosed, Converter={StaticResource ImageOpacityConverter}, Mode=OneTime}">
@@ -200,6 +200,7 @@
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
                         <Setter Property="Padding" Value="0,5" />
+                        <Setter Property="FontSize" Value="14" />
                         <EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_MouseDoubleClick" />
                     </Style>
                 </ListBox.ItemContainerStyle>
